@@ -14,6 +14,11 @@ public class LoginSteps {
 	LoginPage pageLogin = new LoginPage(driver);
 	QuadrinhoPage pageQuadrinho = new QuadrinhoPage(driver);
 	
+	@Given("que o usuario esteja na tela inicial do app")
+	public void queOUsuarioEstejaNaTelaInicialDoApp() {
+		pageLogin.verifyHomeScreen();
+	}
+	
 	@When("digitar seu {string} no campo Login")
 	public void digitarSeuNoCampoLogin(String string) {
 		pageLogin.insertEmail(string);

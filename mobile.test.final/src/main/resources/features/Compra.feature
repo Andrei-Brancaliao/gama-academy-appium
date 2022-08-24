@@ -1,8 +1,7 @@
 @Compra @End2End
 Feature: Compra
-  I want to use this template for my feature file
 
-  @tag1
+  @CompraDeUmProduto
   Scenario Outline: Compra realizada com sucesso de um item
     Given que o usuario esteja logado
     And tenha adicionado um item no carrinho

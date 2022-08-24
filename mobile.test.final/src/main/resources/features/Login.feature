@@ -1,10 +1,9 @@
 @Login @End2End
 Feature: Login
   
-  Given que o usuario esteja na tela inicial do app
-
-  @Login
-  Scenario Outline: Title of your scenario outline
+  @LoginComSucesso
+  Scenario Outline: Realizar Login com sucesso
+  	Given que o usuario esteja na tela inicial do app
     When digitar seu "<login>" no campo Login
     And digitar a "<senha>" no campo Senha
     And clicar no botao Login
@@ -13,5 +12,4 @@ Feature: Login
     Examples: 
       | login                      | senha  |
       | andreibrancaliao@gmail.com | 123456 |
- ##     | aaaaaaaaaaaaaaaa@gmail.com |      7 |
-      
+

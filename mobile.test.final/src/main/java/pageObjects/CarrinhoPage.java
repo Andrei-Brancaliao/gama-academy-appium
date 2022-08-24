@@ -14,7 +14,7 @@ public class CarrinhoPage {
 	public CarrinhoPage(AppiumDriver<?> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
-	
+
 	@AndroidFindBy(xpath = "(//android.widget.Button[@text='Fazer Pagamento'])")
 	private MobileElement fazerPagamentoButton;
 	
@@ -24,7 +24,6 @@ public class CarrinhoPage {
 	@AndroidFindBy(xpath = "(//android.widget.Button[@text='arrow back'])")
 	private MobileElement arrowBackButton;
 
-	
 	@AndroidFindBy(xpath = "(//android.widget.Image[@text='close'])")
 	private MobileElement closeButton;
 
