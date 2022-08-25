@@ -42,8 +42,7 @@ public class PedidosPage {
 	
 	@AndroidFindBy(xpath = "//android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[5]")
 	private MobileElement totalValue;
-	
-	
+
 	@AndroidFindBy(xpath = "//android.view.View[@text='Pedidos']")
 	private MobileElement pedidosListButton;
 	
@@ -60,6 +59,9 @@ public class PedidosPage {
 		assertEquals(purchaseDate.getText(), dataDoPedido);
 		assertEquals(CarrinhoPage.getTotalValue(), totalValue.getText());
 	}
+	
+	
+//	verificar nome 
 	
 	@SuppressWarnings("rawtypes")
 	public void scrollDown() throws InterruptedException {
