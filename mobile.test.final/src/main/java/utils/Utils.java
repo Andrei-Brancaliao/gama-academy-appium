@@ -3,8 +3,8 @@ package utils;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
+import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.AppiumDriver;
+
 import io.cucumber.core.api.Scenario;
 
 public class Utils {
@@ -42,8 +43,6 @@ public class Utils {
 			e.printStackTrace();
 		}
 		
-		return imagem;
-		
+		return imagem;	
 	}
-	
 }

@@ -14,7 +14,7 @@ public class CarrinhoPage {
 	public CarrinhoPage(AppiumDriver<?> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
-	
+
 	@AndroidFindBy(xpath = "(//android.widget.Button[@text='Fazer Pagamento'])")
 	private MobileElement fazerPagamentoButton;
 	
@@ -24,10 +24,12 @@ public class CarrinhoPage {
 	@AndroidFindBy(xpath = "(//android.widget.Button[@text='arrow back'])")
 	private MobileElement arrowBackButton;
 
-	
 	@AndroidFindBy(xpath = "(//android.widget.Image[@text='close'])")
 	private MobileElement closeButton;
 
+	@AndroidFindBy(xpath = "(//android.view.View[2]/android.view.View/android.view.View[2])")
+	private static MobileElement totalValue;
+			
 	public void verifyCarrinhoPage() {
 		assertTrue(carrinhoScreenText.isDisplayed());
 		assertTrue(arrowBackButton.isDisplayed());
@@ -36,4 +38,9 @@ public class CarrinhoPage {
 	public void clickOnPayment() {
 		fazerPagamentoButton.click();
 	}
+
+	public static String getTotalValue() {
+		return totalValue.getText();
+	}
+	
 }
