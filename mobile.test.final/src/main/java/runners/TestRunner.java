@@ -11,12 +11,12 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 			plugin = {"pretty"},
 			features = "src\\main\\resources\\features",
 			glue = "steps",
-			tags = {"@Pedidos"},
+			tags = {"@Compra"},
 			snippets = SnippetType.CAMELCASE,
 			monochrome = true,
-			dryRun = true
+			dryRun = false
 			)
 
 public class TestRunner {
 
-}
+} 

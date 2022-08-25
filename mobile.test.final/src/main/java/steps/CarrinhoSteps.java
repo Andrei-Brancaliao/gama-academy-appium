@@ -15,6 +15,7 @@ import io.cucumber.java.en.When;
 
 public class CarrinhoSteps {
 
+	
 	CarrinhoPage pageCarrinho = new CarrinhoPage(driver);
 	QuadrinhoPage pageQuadrinho = new QuadrinhoPage(driver);
 	PerfilPage pagePerfil = new PerfilPage(driver);
@@ -34,9 +35,9 @@ public class CarrinhoSteps {
 	
 	@Then("o pedido estara na aba de Pedidos do perfil")
 	public void oPedidoEstaraNaAbaDePedidosDoPerfil() throws InterruptedException {
-//		pageCompra.clickOkButton();
+		pageCompra.clickOkButton();
 		pageQuadrinho.clickPerfilButton();
-		pagePerfil.clickPedidos();
+		pagePedidos.clickPedidos();
 		pagePedidos.clickOnLastDetailElement();
 		pagePedidos.verifyLastPurchase();
 		//verificar nome quantidade preco e total

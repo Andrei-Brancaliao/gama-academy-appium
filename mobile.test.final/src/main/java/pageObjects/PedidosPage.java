@@ -24,8 +24,8 @@ public class PedidosPage {
 	}
 	
 	//formatador de data para comparação
-	DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("d/MM/yyyy");
-	DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("h:m:s");
+	DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("d/M/yyyy");
+	DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("H:m:s");
 	
 	//criar string de comparação de pedido
 	String dataDoPedido = "Data: " + CompraPage.dataCompra.format(formatterDate) + " - " + CompraPage.dataCompra.format(formatterTime);
@@ -37,14 +37,23 @@ public class PedidosPage {
 	@AndroidFindBy(xpath = "//android.view.View[2]/android.view.View/android.view.View/android.view.View[last()-1]/android.view.View/android.view.View/android.view.View/android.view.View")
 	private MobileElement comparativeElementOnBottom;
 	
-	@AndroidFindBy(xpath = "//android.view.View[2]/android.view.View/android.view.View/android.view.View[last()-1]/android.view.View/android.view.View/android.view.View/android.view.View")
-	private MobileElement lastElementOnBottom;
-	
 	@AndroidFindBy(xpath = "//android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]")
 	private MobileElement purchaseDate;
 	
 	@AndroidFindBy(xpath = "//android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[5]")
 	private MobileElement totalValue;
+	
+	
+	
+	
+	@AndroidFindBy(xpath = "//android.view.View[@text='Pedidos']")
+	private MobileElement pedidosListButton;
+	
+	public void clickPedidos() {
+		pedidosListButton.click();
+	}
+	
+	
 	
 	public void clickOnLastDetailElement() throws InterruptedException {
 		scrollToBottomPedidosList(comparativeElementOnBottom);
@@ -58,7 +67,7 @@ public class PedidosPage {
 	
 	@SuppressWarnings("rawtypes")
 	public void scrollDown() throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(500);
 		
 		Dimension size = Utils.driver.manage().window().getSize();
 		System.out.println(size);
@@ -73,20 +82,29 @@ public class PedidosPage {
 			.moveTo(PointOption.point(centerX,bottomY)).release().perform();
 
 	}
-	
-	
-	String textBottomElement = comparativeElementOnBottom.getText();
-	
-	public void scrollToBottomPedidosList(MobileElement elementOnBottomOfAPage) throws InterruptedException {
 		
-		boolean isTheSameElement = false;
+	public void scrollToBottomPedidosList(MobileElement elementOnBottomOfAPage) throws InterruptedException {
+		Thread.sleep(500);
+		
+		String comparativeValue = "";
+		String comparativeValue2 = "1";
+		
+		boolean isTheSameText = false;
+		
+		while(isTheSameText == false) {
 			
-		while (isTheSameElement == false){
-			if(textBottomElement.equals("")) {
-				isTheSameElement = true;
+			if(comparativeValue.equals(comparativeValue2)) {
+				
+				isTheSameText = true;
+				
 			}else {
-				isTheSameElement = true;
-//				scrollDown();
+				
+				comparativeValue = comparativeElementOnBottom.getText();
+				scrollDown();
+				comparativeValue2 = comparativeElementOnBottom.getText();
+				
+				System.out.println("comparativo 1: " + comparativeValue);	
+				System.out.println("comparativo 2: " + comparativeValue2);
 			}
 		}
 	}

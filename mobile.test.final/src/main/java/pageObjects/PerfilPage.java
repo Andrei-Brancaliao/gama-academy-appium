@@ -25,7 +25,5 @@ public class PerfilPage {
 	@AndroidFindBy(xpath = "//android.view.View[@text='Logout']")
 	private MobileElement logoutListButton;
 	
-	public void clickPedidos() {
-		pedidosListButton.click();
-	}
+
 }
