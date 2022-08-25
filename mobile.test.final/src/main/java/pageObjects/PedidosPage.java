@@ -25,7 +25,7 @@ public class PedidosPage {
 	
 	//formatador de data para comparação
 	DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("d/M/yyyy");
-	DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("H:m:s");
+	DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("H:m:ss");
 	
 	//criar string de comparação de pedido
 	String dataDoPedido = "Data: " + CompraPage.dataCompra.format(formatterDate) + " - " + CompraPage.dataCompra.format(formatterTime);
@@ -44,16 +44,12 @@ public class PedidosPage {
 	private MobileElement totalValue;
 	
 	
-	
-	
 	@AndroidFindBy(xpath = "//android.view.View[@text='Pedidos']")
 	private MobileElement pedidosListButton;
 	
 	public void clickPedidos() {
 		pedidosListButton.click();
 	}
-	
-	
 	
 	public void clickOnLastDetailElement() throws InterruptedException {
 		scrollToBottomPedidosList(comparativeElementOnBottom);

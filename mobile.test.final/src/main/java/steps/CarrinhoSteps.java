@@ -40,6 +40,8 @@ public class CarrinhoSteps {
 		pagePedidos.clickPedidos();
 		pagePedidos.clickOnLastDetailElement();
 		pagePedidos.verifyLastPurchase();
-		//verificar nome quantidade preco e total
+		//vai falhar. estou tendo problemas com a verificação de horario, nao consigo acertar
+		//o momento no qual esta sendo gerado, e por voltar em segundos, nao consigo fazer a
+		//verificacao completa
 	}
 }
