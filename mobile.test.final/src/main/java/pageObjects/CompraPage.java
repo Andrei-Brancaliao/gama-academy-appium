@@ -1,8 +1,9 @@
 package pageObjects;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import java.time.LocalDateTime;
 
 import org.openqa.selenium.support.PageFactory;
 
@@ -10,16 +11,17 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import utils.Utils;
 
 public class CompraPage {
-
+	
 	public CompraPage(AppiumDriver<?> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
-	//Mobile Elements location
+	public static LocalDateTime dataCompra = LocalDateTime.now();
 	
+	//Mobile Elements location
+		
 	@AndroidFindBy(xpath = "//android.view.View[@text='Pagamento']")
 	private MobileElement pagamentoScreenText;
 	
@@ -28,7 +30,7 @@ public class CompraPage {
 	
 	@AndroidFindBy(xpath = "//android.widget.EditText[@index='0'][1]")
 	private MobileElement cardNumberField;
-	
+
 	@AndroidFindBy(xpath = "//android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText")
 	private MobileElement nameField;
 	
@@ -52,7 +54,10 @@ public class CompraPage {
 	@AndroidFindBy(xpath = "//android.view.View[@text='Obrigado! Sua compra foi realizada com sucesso.']")
 	private MobileElement subTextOnDialogScreen;
 	
-//	MobileElement teste = (MobileElement) Utils.driver.findElementsByXPath("//android.widget.EditText[@index='0']").get(0);
+	@AndroidFindBy(xpath = "//android.widget.Button[@text='OK']")
+	private MobileElement okDialogButton;
+
+	//	MobileElement teste = (MobileElement) Utils.driver.findElementsByXPath("//android.widget.EditText[@index='0']").get(0);
 	
 	public void verifyPaymentScreen() {
 		assertTrue(pagamentoScreenText.isDisplayed());
@@ -82,6 +87,8 @@ public class CompraPage {
 	
 	public void pressPayNowButton() {
 		pagarAgoraButton.click();
+		dataCompra = LocalDateTime.now();
+		System.out.println(dataCompra);
 	}
 	
 	public void verifyPopUpDialog() {
@@ -96,4 +103,9 @@ public class CompraPage {
 		assertEquals(textOnDialogScreen.getText(), "Compra finalizada!");
 		assertEquals(subTextOnDialogScreen.getText(), "Obrigado! Sua compra foi realizada com sucesso.");
 	}
+	
+	public void clickOkButton() {
+		okDialogButton.click();
+	}
+	
 }

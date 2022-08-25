@@ -14,6 +14,7 @@ Feature: Compra
     And clicar no botao Pagar agora
     Then um popup sera exibido
     And tera o texto de Compra Finalizada
+    And o pedido estara na aba de Pedidos do perfil
 
     Examples: 
       | numeroCartao     | nome         | data   | safeCode |

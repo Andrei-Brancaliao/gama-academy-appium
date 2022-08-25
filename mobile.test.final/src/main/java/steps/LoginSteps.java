@@ -6,6 +6,7 @@ import pageObjects.QuadrinhoPage;
 import static utils.Utils.driver;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
@@ -32,6 +33,12 @@ public class LoginSteps {
 	@When("clicar no botao Login")
 	public void clicarNoBotaoLogin() {
 		pageLogin.clickLoginBtn();
+	}
+	
+	@Then("ira exibir mensagem de erro no rodape")
+	public void iraExibirMensagemDeErroNoRodape() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new cucumber.api.PendingException();
 	}
 
 	//logar usuario

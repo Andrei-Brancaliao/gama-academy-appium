@@ -39,6 +39,8 @@ public class QuadrinhoPage {
 	@AndroidFindBy(xpath = "//android.widget.Button[@text='+']")
 	private MobileElement increaseUnityButton;
 	
+	@AndroidFindBy(xpath = "//android.view.View[@text='person Perfil']")
+	private MobileElement perfilButton;
 		
 	public void verifyQuadrinhoPage() {
 		assertTrue(quadrinhoTextScreen.isDisplayed());
@@ -60,5 +62,9 @@ public class QuadrinhoPage {
 		increaseUnityButton.click();
 		}
 		addToCartButton.click();
+	}
+	
+	public void clickPerfilButton() {
+		perfilButton.click();
 	}
 }
