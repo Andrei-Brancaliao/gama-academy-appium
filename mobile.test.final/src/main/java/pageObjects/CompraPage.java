@@ -87,12 +87,11 @@ public class CompraPage {
 	
 	public void pressPayNowButton() {
 		pagarAgoraButton.click();
-		dataCompra = LocalDateTime.now();
-		System.out.println(dataCompra);
 	}
 	
 	public void verifyPopUpDialog() {
 		assertTrue(popUpWithMessage.isDisplayed());
+		
 	}
 	
 	public void verifyTextoOnPopUpDialog() {

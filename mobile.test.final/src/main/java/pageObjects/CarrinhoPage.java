@@ -30,6 +30,24 @@ public class CarrinhoPage {
 	@AndroidFindBy(xpath = "(//android.view.View[2]/android.view.View/android.view.View[2])")
 	private static MobileElement totalValue;
 			
+	//elementos do quadrinho na lista de carrinho
+	@AndroidFindBy(xpath = "(//android.view.View[2]/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]/android.view.View)")
+	private static MobileElement comicBookNameOnCart;
+	
+	@AndroidFindBy(xpath = "(//android.view.View[2]/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]/android.widget.TextView)")
+	private static MobileElement quantityOfComicBooks;
+	
+	@AndroidFindBy(xpath = "(//android.view.View[2]/android.view.View/android.view.View[1]/android.view.View/android.view.View[3])")
+	private static MobileElement totalAmountByComics;
+
+	@AndroidFindBy(xpath = "(//android.view.View[2]/android.view.View/android.view.View[2])")
+	private static MobileElement totalAmountTotal;
+		
+	public static String comicBookName = "";
+	public static String quantityOfComics = "";
+	public static String priceByComic = "";
+	public static String totalAmount = "";
+	
 	public void verifyCarrinhoPage() {
 		assertTrue(carrinhoScreenText.isDisplayed());
 		assertTrue(arrowBackButton.isDisplayed());
@@ -43,4 +61,11 @@ public class CarrinhoPage {
 		return totalValue.getText();
 	}
 	
+	public void carrinhoStringTreatment() {
+		//tratamento de string para comparacao nos detalhes
+		comicBookName = "\"" + comicBookNameOnCart.getText() + "\"";
+		quantityOfComics = "Qtd: " + quantityOfComicBooks.getText();
+		priceByComic = "R$ " + totalAmountByComics.getText();
+		totalAmount = totalAmountTotal.getText();
+	}
 }

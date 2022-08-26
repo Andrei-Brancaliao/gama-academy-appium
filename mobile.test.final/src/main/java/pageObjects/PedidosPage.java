@@ -25,7 +25,7 @@ public class PedidosPage {
 	
 	//formatador de data para comparação
 	DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("d/M/yyyy");
-	DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("H:m:s");
+	DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("H:m:ss");
 	
 	//criar string de comparação de pedido
 	String dataDoPedido = "Data: " + CompraPage.dataCompra.format(formatterDate) + " - " + CompraPage.dataCompra.format(formatterTime);
@@ -42,18 +42,13 @@ public class PedidosPage {
 	
 	@AndroidFindBy(xpath = "//android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[5]")
 	private MobileElement totalValue;
-	
-	
-	
-	
+
 	@AndroidFindBy(xpath = "//android.view.View[@text='Pedidos']")
 	private MobileElement pedidosListButton;
 	
 	public void clickPedidos() {
 		pedidosListButton.click();
 	}
-	
-	
 	
 	public void clickOnLastDetailElement() throws InterruptedException {
 		scrollToBottomPedidosList(comparativeElementOnBottom);
@@ -64,6 +59,9 @@ public class PedidosPage {
 		assertEquals(purchaseDate.getText(), dataDoPedido);
 		assertEquals(CarrinhoPage.getTotalValue(), totalValue.getText());
 	}
+	
+	
+//	verificar nome 
 	
 	@SuppressWarnings("rawtypes")
 	public void scrollDown() throws InterruptedException {
